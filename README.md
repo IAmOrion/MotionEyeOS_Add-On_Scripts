@@ -147,3 +147,17 @@ Filename to save the results to
 # print_response = 0
 
 Print out the results - may be useful when running the script manually to see output.
+
+
+
+
+
+# Donations
+
+If you can spare some change - I recommend donating to the MotionEye / MotionEyeOS creator.
+You can do so by visiting the wiki, and using the yellow "Donate" button.
+
+https://github.com/ccrisan/motioneyeos/wiki
+
+
+If you'd like to donate to me, you can do so via this link: https://www.paypal.me/iamorion
