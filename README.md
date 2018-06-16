@@ -61,7 +61,6 @@ See more here: https://pushover.net/api#sounds
 
 
 
-
 # motion_alert.py - settings
 ----------------------------
 
