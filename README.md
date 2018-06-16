@@ -95,12 +95,19 @@ Obviously debugging & print statements are only useful if you're running this sc
 (I won't explain these again, these are the same as used in pushover_boot.py)
 
 APP_TOKEN = 'YOUR_APP_TOKEN'
+
 USER_KEY = 'YOUR_USER_KEY'
+
 HTML = '1' # This is a STRING - NOT a boolean! 0 = plain text, 1 = HTML
+
 TITLE = 'MotionEyeOS - Motion Detected'
+
 MESSAGE = '<b>RPiZeroW_CAM2</b><br><br>'
+
 URL = ''
+
 URL_TITLE = ''
+
 SOUND = 'pushover' # default = pushover. https://pushover.net/api#sounds
 
 
