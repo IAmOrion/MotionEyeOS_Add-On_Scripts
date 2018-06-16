@@ -12,12 +12,10 @@ global MESSAGE, FILENAME, FILE_FOUND
 PUSHOVER = 1 # 1 = Use | 0 = Don't use
 OPENALPR = 1 # 1 = Use | 0 = Don't use
 
-DELAY = 5 # Delay in seconds before processing the captured image.  Reason for this, is due to processor speed, (PiZeroW at least) the script is actioned before the motion triggered image is saved!)
-
 NETWORK_SHARE = 1 # Are you using a network share for storage? 1 = yes, 0 = no
 SHARE_FOLDER = '/data/media/motioneye_192_168_0_200_storage_sda1_front_cctv_rpizerow_cam2__admin/' # Only required if NETWORK_SHARE = 1
 
-# The share folder above can be retried by going into your /data/media/ folder AFTER setting up your network storage folder within MotionEye
+# The share folder above can be retrieved by going into your /data/media/ folder AFTER setting up your network storage folder within MotionEye
 
 if NETWORK_SHARE:
 	# You will have to build/code this string manually depending on your usage and how you're saving still images
@@ -25,7 +23,7 @@ if NETWORK_SHARE:
 else:
 	FILENAME = '/data/output/Camera1/lastsnap.jpg' # lastsnap.jpg is an alias created & updated by MotionEye to always point to the "latest" / last captured still image
 
-debug = 1 # debugging.  Obviously debugging & print statements are only useful if you're running this script manually before settings it as your motion detected notification command.
+debug = 1 # debugging.  Obviously debugging & print statements are only useful if you're running this script manually before setting it as your motion detected notification command.
 
 # Pushover Settings - https://pushover.net
 # ================================================================================
