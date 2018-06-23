@@ -13,8 +13,8 @@ WEBHOOK_HEADER = "Content-Type: multipart/form-data" # Leave this as is! DO NOT 
 WEBHOOK_TITLE = "__**Motion Detected!**__\n\n" # Check Discords mark down text to see how to style your content.  \n = new lne
 WEBHOOK_MESSAGE = " - Motion was detected on Camera 1"
 
-TIMEZONE = "Europe/London"
-MESSAGE_DATEFORMAT = "%d/%m/%Y - %H:%M:%S" # Date format used in the message itself
+OVERRIDE_TIMEZONE = 0 # 1 Override timezone or 0 use MotionEye set timezone
+OVERRIDE_TIMEZONE_WITH = "Europe/London" # Only used is above is set to 1
 
 NETWORK_SHARE = 1 # Are you using a network share for storage? 1 = yes, 0 = no
 SHARE_FOLDER = '/data/media/motioneye_192_168_0_200_storage_sda1_front_cctv_rpizerow_cam2__admin/' # Only required if NETWORK_SHARE = 1
@@ -39,6 +39,11 @@ DEBUG = 0 # If set to 1, the response from Discord will be output in terminal.  
 # ================================================================================
 
 import pycurl, cStringIO, glob, os, json, pytz, datetime, time
+
+if OVERRIDE_TIMEZONE:
+	TIMEZONE = OVERRIDE_TIMEZONE_WITH
+else:
+	TIMEZONE = os.path.realpath('/data/etc/localtime').replace('/usr/share/zoneinfo/posix/','')
 
 utc = pytz.timezone('UTC')
 now = utc.localize(datetime.datetime.utcnow())
@@ -84,7 +89,11 @@ def send_to_discord():
 	c.setopt(c.WRITEFUNCTION, buf.write)
 	c.setopt(c.HTTPHEADER, [WEBHOOK_HEADER])
 	c.setopt(c.USERAGENT, "MotionEyeOS")
-	c.setopt(c.HTTPPOST, [("payload_json", json.dumps(WEBHOOK_CONTENT)),("file", (c.FORM_FILE, FILENAME, )),])
+
+	if os.path.isfile(FILENAME):
+		c.setopt(c.HTTPPOST, [("payload_json", json.dumps(WEBHOOK_CONTENT)),("file", (c.FORM_FILE, FILENAME, )),])
+	else:
+		c.setopt(c.HTTPPOST, [("payload_json", json.dumps(WEBHOOK_CONTENT)),])
 	
 	c.setopt(c.VERBOSE, PYCURL_VERBOSE)
 	
