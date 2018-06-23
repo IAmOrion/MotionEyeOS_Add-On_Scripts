@@ -8,3 +8,7 @@ The "Basic" folder contains scripts that are, well, basic.  They are pretty much
 # /Advanced
 
 These scripts are less novice friendly, but are built to parse command line arguments, meaning all options parsed with the command line.  For example: python script.py --arg1 --arg2 --arg3 and so on.  This has the benefit of MUCH neater code, as well as being able to use the same script for multiple cameras, simply by parsing different arguments.
+
+# /Images
+
+Images used in some of the scripts
