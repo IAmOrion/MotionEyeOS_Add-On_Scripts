@@ -10,7 +10,8 @@ Pushover - https://pushover.net
 # Basic usage
 
 1) userinit.sh goes in /data/etc/ 
-   (https://github.com/ccrisan/motioneyeos/wiki/Tweaks#adding-custom-startup-commands)
+
+      (https://github.com/ccrisan/motioneyeos/wiki/Tweaks#adding-custom-startup-commands)
 2) pushover_boot.py goes in /data/
 3) motion_alert.py goes in /data/
 4) noimage.jpg goes in /data/output/
